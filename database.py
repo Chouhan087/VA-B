@@ -30,7 +30,7 @@ if DATABASE_URL.startswith("postgres://"):
 if DATABASE_URL.startswith("postgresql://") and "sslmode=" not in DATABASE_URL:
     DATABASE_URL += ("&" if "?" in DATABASE_URL else "?") + "sslmode=require"
 
-EMBEDDING_DIM = int(os.environ.get("EMBEDDING_DIM", "768"))
+EMBEDDING_DIM = 768
 VECTOR_INDEX_METHOD = os.environ.get("VECTOR_INDEX_METHOD", "hnsw").lower()
 
 connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
