@@ -1,0 +1,17 @@
+# VOXIA AI backend environment configuration
+
+# OpenRouter API
+OPENROUTER_API_KEY=
+OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+OPENROUTER_MODEL=qwen/qwen3-14b
+
+# Optional OpenRouter app metadata
+OPENROUTER_APP_URL=http://localhost:5174
+OPENROUTER_APP_NAME=VOXIA AI
+
+# Allow the Vite frontend origins
+CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174
+LLM_TIMEOUT_SECONDS=90
+LLM_MAX_TOKENS=700
+LLM_MAX_HISTORY_MESSAGES=16
+LLM_TEMPERATURE=0.65

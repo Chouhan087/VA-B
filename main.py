@@ -81,6 +81,17 @@ ensure_pgvector_indexes()
 
 app = FastAPI(title="VOXIA AI Backend", version="0.2.0")
 
+
+@app.get("/", tags=["Root"])
+async def root():
+    """Simple root/index endpoint for deployment checks."""
+    return {
+        "name": "VOXIA AI API",
+        "status": "online",
+        "docs": "/docs",
+        "health": "/api/health",
+    }
+
 # Wildcard by default (convenient for local dev / MVP use). For a public
 # deployment, set CORS_ORIGINS to a comma-separated list of the frontend's
 # actual origin(s), e.g. "https://yourdomain.com" — see DEPLOYMENT.md.
@@ -104,14 +115,6 @@ app.add_middleware(
 )
 # ---------- health / roles (public) ----------
 
-
-@app.get("/")
-async def root():
-    return {"message": "FastAPI is running on Vercel"}
-
-@app.get("/api/health")
-async def health():
-    return {"status": "ok"}
 
 @app.get("/api/health")
 async def health():
