@@ -105,6 +105,14 @@ app.add_middleware(
 # ---------- health / roles (public) ----------
 
 
+@app.get("/")
+async def root():
+    return {"message": "FastAPI is running on Vercel"}
+
+@app.get("/api/health")
+async def health():
+    return {"status": "ok"}
+
 @app.get("/api/health")
 async def health():
     return {
